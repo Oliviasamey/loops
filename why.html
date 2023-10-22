@@ -1,1 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Welcome Lucky!, you have some queries to review</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Student</th>
+                <th>Query</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="table_rows">
+
+        </tbody>
+    </table>
+
+
+    <script>
+        const queries = [
+            { id: 1, student: "Genesis", query: "Permission to absent from tech class", status: "APPROVED" },
+            { id: 2, student: "Nunya", query: "Permission to Absa Hackathon", status: "APPROVED" },
+            { id: 3, student: "Fleeur", query: "Permission to shoot film", status: "DECLINED" },
+            { id: 4, student: "Delight", query: "Need some delightful time to cool off", status: "DECLINED" },
+            { id: 5, student: "Sila", query: "Permission to participate in Absa Hackathon", status: "PENDING" },
+        ]
+
+        // while loop
+        var trows = document.getElementById("table_rows");
+        var i = 0
+        var allrows = "";
+       do {
+            allrows+= `
+            <tr>
+                <td>${queries[i].id}</td>
+                <td>${queries[i].student}</td>
+                <td>${queries[i].query}</td>
+                <td>${queries[i].status}</td>
+                <td><a href="#">APPROVED</a>&nbsp &nbsp &nbsp<a href="#">DECLINE</a></td>
+            </r>
+    
+            `
+            i++
+        } while(i < queries.length);
+
+        trows.innerHTML = allrows;
+    </script>
+</body>
+
+</html>
